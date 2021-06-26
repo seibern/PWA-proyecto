@@ -16,12 +16,20 @@
 
 */
 import { createApp } from "vue";
+import Vue from 'vue';
 import App from "./App.vue";
 import router from "./router";
 import ArgonDashboard from "./plugins/argon-dashboard";
 import "element-plus/lib/theme-chalk/index.css";
+import VueAxios from 'vue-axios'
+import Axios from 'axios'
+
+
 
 const appInstance = createApp(App);
 appInstance.use(router);
 appInstance.use(ArgonDashboard);
 appInstance.mount("#app");
+
+Vue.prototype.$isLoged = false;
+Vue.use( VueAxios, Axios);

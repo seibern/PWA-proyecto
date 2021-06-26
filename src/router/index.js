@@ -10,9 +10,21 @@ import Profile from "../views/UserProfile.vue";
 import Tables from "../views/Tables.vue";
 
 import Login from "../views/Login.vue";
-import Register from "../views/Register.vue";
+//import Register from "../views/Register.vue";
 
 const routes = [
+  {
+    path: "/",
+    redirect: "/login",
+    component: AuthLayout,
+    children: [
+      {
+        path: "/login",
+        name: "login",
+        components: { default: Login },
+      },
+    ],
+  },
   {
     path: "/",
     redirect: "/dashboard",
@@ -21,7 +33,7 @@ const routes = [
       {
         path: "/dashboard",
         name: "dashboard",
-        components: { default: Dashboard },
+        components: {default: Dashboard},
       },
       {
         path: "/icons",
@@ -43,25 +55,8 @@ const routes = [
         name: "tables",
         components: { default: Tables },
       },
-    ],
-  },
-  {
-    path: "/",
-    redirect: "login",
-    component: AuthLayout,
-    children: [
-      {
-        path: "/login",
-        name: "login",
-        components: { default: Login },
-      },
-      {
-        path: "/register",
-        name: "register",
-        components: { default: Register },
-      },
-    ],
-  },
+    ]
+  }
 ];
 
 const router = createRouter({

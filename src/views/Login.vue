@@ -25,7 +25,7 @@
           <div class="text-center text-muted mb-4">
             <small>Or sign in with credentials</small>
           </div>
-          <form role="form">
+          <form >
             <base-input
               formClasses="input-group-alternative mb-3"
               placeholder="Email"
@@ -36,7 +36,7 @@
 
             <base-input
               formClasses="input-group-alternative mb-3"
-              placeholder="Password"
+              placeholder="Contraseña"
               type="password"
               addon-left-icon="ni ni-lock-circle-open"
               v-model="model.password"
@@ -47,7 +47,7 @@
               <span class="text-muted">Remember me</span>
             </base-checkbox>
             <div class="text-center">
-              <base-button type="primary" class="my-4">Sign in</base-button>
+              <base-button type="primary" v-on:click="login" class="my-4">Sign in</base-button>
             </div>
           </form>
         </div>
@@ -66,6 +66,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
   name: "login",
   data() {
@@ -73,9 +74,29 @@ export default {
       model: {
         email: "",
         password: "",
+        error: false,
+        error_msg: "",
       },
     };
   },
+  methods:{
+    login(){
+        let json = {
+          "email" : this.email,
+          "password": this.password
+        };
+        axios.post('http://localhost:4000/login', json)
+        .then( data =>{
+           if(data.data.message == "Ok"){
+             //localStorage.token = data.data.result.token;
+             this.$router.push('dashboard');
+           }else{
+             //this.error = true;
+             //this.error_msg = data.data.result.error_msg;
+           }
+        })
+    }
+  }
 };
 </script>
 <style></style>
