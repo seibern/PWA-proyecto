@@ -27,6 +27,7 @@
     </div>
     <slot>
       <input
+       @change="updateValue"
         :value="value"
         v-bind="$attrs"
         class="form-control"
@@ -36,6 +37,7 @@
           inputClasses,
         ]"
         aria-describedby="addon-right addon-left"
+        
       />
     </slot>
     <div v-if="addonRightIcon || $slots.addonRight" class="input-group-append">

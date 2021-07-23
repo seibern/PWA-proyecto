@@ -32,13 +32,15 @@
             </div>
           </div>
         </div>
+      </template>
+    </base-nav>
     <!-- Header -->
     <div class="header bg-gradient-success py-7 py-lg-8">
       <div class="container">
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Bienvenido</h1>
+              <h1 class="text-white">¡Bienvenido!</h1>
             </div>
           </div>
         </div>
@@ -69,7 +71,7 @@
           <div class="col-xl-6">
             <div class="copyright text-center text-xl-left text-muted">
               &copy; {{ year }}
-              PWA Project
+              Creative Tim
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 
@@ -12,6 +13,8 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors({origin: 'http://localhost:8080'}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // routes
 app.use(require('./routes/index'));

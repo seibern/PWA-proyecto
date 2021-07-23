@@ -16,9 +16,9 @@
 
         <sidebar-item
           :link="{
-            name: 'Icons',
-            icon: 'ni ni-planet text-blue',
-            path: '/icons',
+            name: 'Registrar',
+            icon: 'ni ni-single-02 text-blue',
+            path: '/registro',
           }"
         />
         <sidebar-item

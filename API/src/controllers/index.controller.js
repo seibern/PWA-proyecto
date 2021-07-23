@@ -15,6 +15,7 @@ const getUsers = async (req, res) => {
 
 const login = async (req, res) => {
     const {email, password} = req.body;
+    console.log("Email:" + email);
     const name = '';
     const response = await pool.query('SELECT * FROM users WHERE email = $1 AND password = $2', [email, password]);
     if(response.rows === 0){
@@ -43,8 +44,10 @@ const getUserById = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
-    const { name, email } = req.body;
-    const response = await pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email]);
+    const { name, email, password } = req.body;
+    console.log(req.body.name);
+    
+    const response = await pool.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)', [name, email, password]);
     res.json({
         message: 'User Added successfully',
         body: {

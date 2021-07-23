@@ -8,6 +8,7 @@ import Icons from "../views/Icons.vue";
 import Maps from "../views/Maps.vue";
 import Profile from "../views/UserProfile.vue";
 import Tables from "../views/Tables.vue";
+import Registro from "../views/Registro.vue"
 
 import Login from "../views/Login.vue";
 //import Register from "../views/Register.vue";
@@ -36,9 +37,14 @@ const routes = [
         components: {default: Dashboard},
       },
       {
+        path: "/registro",
+        name: "registro",
+        components: {default: Registro}
+      },
+      {
         path: "/icons",
         name: "icons",
-        components: { default: Icons },
+        components: { default: Icons }
       },
       {
         path: "/maps",
